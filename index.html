@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>To Do List Life Dashboard</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <!-- Toolbar: theme toggle + name input -->
+  <div id="toolbar">
+    <div id="name-input-wrapper">
+      <input id="toolbar-name-input" type="text" placeholder="Your name" />
+      <button id="btn-save-name">Save</button>
+    </div>
+    <button id="btn-theme-toggle">
+      <span id="theme-icon">🌙</span>
+      <span id="theme-label">Dark</span>
+    </button>
+  </div>
+
+  <div class="dashboard-grid">
+    <!-- Row 1: Greeting spans full width -->
+    <section id="greeting-widget" class="widget">
+      <h1 id="greeting-text"></h1>
+      <p id="greeting-time"></p>
+      <p id="greeting-date"></p>
+    </section>
+
+    <!-- Row 2: Focus Timer (left) + To-Do List (right) -->
+    <section id="focus-timer" class="widget">
+      <h2>Focus Timer</h2>
+      <div id="timer-display">25:00</div>
+      <div class="timer-duration-row">
+        <label for="timer-duration-input">Duration (min):</label>
+        <input id="timer-duration-input" type="number" min="1" max="120" value="25" />
+        <button id="btn-set-duration">Set</button>
+      </div>
+      <div class="timer-controls">
+        <button id="btn-start">Start</button>
+        <button id="btn-stop">Stop</button>
+        <button id="btn-reset">Reset</button>
+      </div>
+    </section>
+
+    <section id="todo-list" class="widget">
+      <h2>To-Do List</h2>
+      <div class="todo-sort-row">
+        <label for="todo-sort-select">Sort by:</label>
+        <select id="todo-sort-select">
+          <option value="none">None</option>
+          <option value="name-asc">Name (A-Z)</option>
+          <option value="name-desc">Name (Z-A)</option>
+          <option value="status">Status (Incomplete first)</option>
+        </select>
+      </div>
+      <div class="todo-input-row">
+        <input id="todo-input" type="text" placeholder="Add a new task..." />
+        <button id="btn-add-todo">Add</button>
+      </div>
+      <span class="validation-msg" id="todo-validation"></span>
+      <ul id="todo-items"></ul>
+    </section>
+
+    <!-- Row 3: Quick Links spans full width -->
+    <section id="quick-links" class="widget">
+      <h2>Quick Links</h2>
+      <div class="quick-links-input-row">
+        <input id="link-label-input" type="text" placeholder="Label" />
+        <input id="link-url-input" type="url" placeholder="https://..." />
+        <button id="btn-add-link">Add Link</button>
+      </div>
+      <span class="validation-msg" id="link-validation"></span>
+      <div id="link-buttons"></div>
+    </section>
+  </div>
+
+  <script src="js/app.js" defer></script>
+</body>
+</html>
